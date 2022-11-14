@@ -1,5 +1,4 @@
 name: unit-test-runner
-run-name: Run unit tests against ${{ github.ref }} for commit ${{ github.sha }}
 on: [push, pull_request]
 
 jobs:

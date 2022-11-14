@@ -26,5 +26,5 @@ jobs:
       - run: 'rm -rf .npmrc && cp .npmrc.example .npmrc'
       - run: yarn install --frozen-lockfile
         env:
-          GITHUB_AUTH_TOKEN: ${ secrets.GITHUB_TOKEN }
+          GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn test

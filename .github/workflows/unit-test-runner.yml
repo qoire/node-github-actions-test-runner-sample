@@ -9,6 +9,9 @@ on:
       - '**.ts'
       - '**.tsx'
 
+permissions:
+  packages: read
+
 jobs:
   run-unit-tests:
     runs-on: ubuntu-latest
@@ -20,5 +23,8 @@ jobs:
           # this defaults to using nvms latest version, which we should be
           # following, however we can be more specific (ex. '16.x')
           node-version: 'lts/*'
+      - run: 'rm -rf .npmrc && cp .npmrc.example .npmrc'
       - run: yarn install --frozen-lockfile
+        env:
+          GITHUB_AUTH_TOKEN: ${ secrets.GITHUB_TOKEN }
       - run: yarn test

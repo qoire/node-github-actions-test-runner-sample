@@ -1,8 +1,16 @@
-name: unit-test-runner
-on: [push, pull_request]
+name: run-unit-tests
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+    # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-based-on-files-changed-in-a-pull-request
+    paths:
+      - '**.ts'
+      - '**.tsx'
 
 jobs:
-  run_unit_tests:
+  run-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,7 +20,5 @@ jobs:
           # this defaults to using nvms latest version, which we should be
           # following, however we can be more specific (ex. '16.x')
           node-version: 'lts/*'
-          cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test
-        

@@ -109,3 +109,4 @@ dist
 # Project specific
 dist/
 .idea/
+.npmrc

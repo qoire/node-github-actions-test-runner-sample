@@ -82,6 +82,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@qoire/addition-subtraction-dummy@^1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@qoire/addition-subtraction-dummy/1.0.0/dff7adf97f2c326aeac26735ce3d471f2dcfb8e5#dff7adf97f2c326aeac26735ce3d471f2dcfb8e5"
+  integrity sha512-BBEv/UVO88CWs8mxVp3TYBd6y2fOwoDwrCO+7Ulj0m551Scnql82SFtrMhcQdyOqEtI9/4E783KywwYY8lpYDg==
+  dependencies:
+    typescript "^4.8.4"
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.9.tgz#df4907fc07a886922637b15e02d4cebc4c0021b2"

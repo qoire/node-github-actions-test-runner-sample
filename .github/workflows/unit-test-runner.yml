@@ -2,8 +2,6 @@ name: run-unit-tests
 on:
   push:
   pull_request:
-    types:
-      - opened
     # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-based-on-files-changed-in-a-pull-request
     paths:
       - '**.ts'

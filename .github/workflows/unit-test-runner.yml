@@ -1,0 +1,18 @@
+name: unit-test-runner
+on: [push, pull_request]
+
+jobs:
+  run_unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js LTS version
+        uses: actions/setup-node@v3
+        with:
+          # this defaults to using nvms latest version, which we should be
+          # following, however we can be more specific (ex. '16.x')
+          node-version: 'lts/*'
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
+        

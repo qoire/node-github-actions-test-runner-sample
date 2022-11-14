@@ -1,4 +1,6 @@
-name: run-unit-tests
+# There's different naming conventions we can use here, let's agree to use
+# nouns that best represent the work flow so ex. Unit Test not Run Unit Tests
+name: Unit Test
 on:
   push:
   pull_request:

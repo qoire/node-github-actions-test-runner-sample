@@ -6,7 +6,7 @@
   "author": "qoire <mr.sun.yao@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./dist && tsc -p ."
+    "build": "rm -rf ./dist && tsc -p .",
     "test": "mocha --require ts-node/register \"src/**/*.test.ts\""
   },
   "devDependencies": {

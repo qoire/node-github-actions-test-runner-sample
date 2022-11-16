@@ -21,7 +21,8 @@ permissions:
   packages: read
 
 jobs:
-  run-unit-tests:
+  run-dev-checks:
+    name: Run Development Checks
     strategy:
       fail-fast: false
       matrix:

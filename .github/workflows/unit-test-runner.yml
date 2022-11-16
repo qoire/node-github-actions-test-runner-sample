@@ -23,8 +23,9 @@ permissions:
 jobs:
   run-unit-tests:
     strategy:
+      fail-fast: false
       matrix:
-        os: [mac-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     env:
       GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

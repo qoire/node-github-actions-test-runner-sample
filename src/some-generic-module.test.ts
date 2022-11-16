@@ -7,8 +7,8 @@ describe("some-generic-module unit tests", function () {
     expect(result).to.eq(2);
   });
 
-  it("should fail to sum 2+2=5", function () {
+  it("should fail to sum 2+2=4", function () {
     const result = summation(2, 2);
-    expect(result).to.eq(5);
+    expect(result).to.eq(4);
   });
 });

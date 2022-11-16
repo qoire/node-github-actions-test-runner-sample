@@ -26,6 +26,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, mac-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js LTS version
@@ -38,8 +40,6 @@ jobs:
         run: 'rm -rf .npmrc && cp .npmrc.example .npmrc'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        env:
-          GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run build
         run: yarn build
       - name: Run unit tests

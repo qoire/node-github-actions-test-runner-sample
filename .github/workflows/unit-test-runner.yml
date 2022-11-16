@@ -1,8 +1,16 @@
 # There's different naming conventions we can use here, let's agree to use
 # nouns that best represent the work flow so ex. Unit Test not Run Unit Tests
-name: Unit Test
+name: Development Checks
 on:
   push:
+    # This is saying: only test against pushes to these three branches, and ignore
+    # All tag creations (also considered a push)
+    branches:
+      - master
+      - main
+      - development
+    tags-ignore:
+      - '**'
   pull_request:
     # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-based-on-files-changed-in-a-pull-request
     paths:
@@ -14,7 +22,10 @@ permissions:
 
 jobs:
   run-unit-tests:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, mac-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js LTS version
@@ -29,5 +40,7 @@ jobs:
         run: yarn install --frozen-lockfile
         env:
           GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run build
+        run: yarn build
       - name: Run unit tests
         run: yarn test

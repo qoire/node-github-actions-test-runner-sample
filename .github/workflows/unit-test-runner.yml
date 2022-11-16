@@ -24,7 +24,7 @@ jobs:
   run-unit-tests:
     strategy:
       matrix:
-        os: [ubuntu-latest, mac-latest]
+        os: [mac-latest]
     runs-on: ${{ matrix.os }}
     env:
       GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

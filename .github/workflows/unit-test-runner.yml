@@ -12,16 +12,14 @@ on:
     tags-ignore:
       - '**'
   pull_request:
-    # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-based-on-files-changed-in-a-pull-request
-    paths:
-      - '**.ts'
-      - '**.tsx'
+
 
 permissions:
   packages: read
 
 jobs:
   run-unit-tests:
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'wip') }}
     strategy:
       fail-fast: false
       matrix:

@@ -11,7 +11,10 @@ on:
       - development
     tags-ignore:
       - '**'
+  # No method to add in behaviour additively, so specify default behaviour
+  # and additional ones, see notes on: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
   pull_request:
+    types: [opened, synchronize, reopened, unlabeled]
 
 
 permissions:
